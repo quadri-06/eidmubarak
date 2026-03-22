@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eid ul Fitr Mubarak — Syed Mohammed Quadri</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Amiri:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #C9A84C;
+    --gold-light: #F0D080;
+    --gold-dark: #8B6914;
+    --emerald: #0D4F3C;
+    --emerald-light: #1A7A5E;
+    --cream: #FDF6E3;
+    --deep: #060E08;
+    --rose: #C0392B;
+  }
+
+  html, body {
+    width: 100%; height: 100%;
+    overflow: hidden;
+    background: var(--deep);
+    font-family: 'Amiri', serif;
+  }
+
+  .page {
+    position: fixed; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.8s ease;
+    overflow-y: auto;
+  }
+  .page.active { opacity: 1; pointer-events: all; }
+
+  #stars { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+  #page1 {
+    background: radial-gradient(ellipse at 50% 0%, #1a3d2b 0%, #060E08 60%);
+    z-index: 1;
+  }
+
+  .lanterns {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none; overflow: hidden;
+  }
+  .lantern {
+    position: absolute;
+    width: 28px; height: 42px;
+    border-radius: 50% 50% 40% 40%;
+    animation: sway 4s ease-in-out infinite;
+    filter: drop-shadow(0 0 12px currentColor);
+  }
+  .lantern::after {
+    content: '';
+    position: absolute; bottom: -14px; left: 50%;
+    transform: translateX(-50%);
+    width: 2px; height: 14px;
+    background: currentColor; opacity: 0.5;
+  }
+  .lantern:nth-child(1){ left:5%; top:4%; color:#C9A84C; background:rgba(201,168,76,0.85); animation-delay:0s; }
+  .lantern:nth-child(2){ left:15%; top:2%; color:#c0392b; background:rgba(192,57,43,0.85); animation-delay:.7s; }
+  .lantern:nth-child(3){ left:80%; top:3%; color:#C9A84C; background:rgba(201,168,76,0.85); animation-delay:1.2s; }
+  .lantern:nth-child(4){ left:90%; top:5%; color:#2ecc71; background:rgba(46,204,113,0.75); animation-delay:.4s; }
+  .lantern:nth-child(5){ left:45%; top:1%; color:#c0392b; background:rgba(192,57,43,0.85); animation-delay:1.8s; }
+  .lantern:nth-child(6){ left:68%; top:2%; color:#C9A84C; background:rgba(201,168,76,0.8); animation-delay:.2s; }
+  .lantern:nth-child(7){ left:30%; top:3%; color:#2ecc71; background:rgba(46,204,113,0.75); animation-delay:2.1s; }
+
+  @keyframes sway {
+    0%,100%{ transform: rotate(-8deg); }
+    50%{ transform: rotate(8deg); }
+  }
+
+  .wish-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    max-width: 700px;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  @keyframes fadeUp {
+    from{ opacity:0; transform: translateY(40px); }
+    to{ opacity:1; transform: translateY(0); }
+  }
+
+  .arabic-top {
+    font-family: 'Amiri', serif;
+    font-size: clamp(2rem, 6vw, 3.8rem);
+    color: var(--gold-light);
+    letter-spacing: 0.05em;
+    text-shadow: 0 0 30px rgba(201,168,76,0.6);
+    line-height: 1.3;
+    margin-bottom: 0.3rem;
+  }
+
+  .crescent-star {
+    font-size: clamp(3rem, 8vw, 5rem);
+    animation: pulse 2.5s ease-in-out infinite;
+    display: block;
+    margin: 0.5rem 0;
+    filter: drop-shadow(0 0 20px var(--gold));
+  }
+  @keyframes pulse {
+    0%,100%{ transform: scale(1); }
+    50%{ transform: scale(1.1); }
+  }
+
+  .eid-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2.5rem, 8vw, 5.5rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #F0D080 0%, #C9A84C 40%, #fff8dc 60%, #C9A84C 80%, #8B6914 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    filter: drop-shadow(0 4px 20px rgba(201,168,76,0.4));
+    margin-bottom: 0.2rem;
+  }
+
+  .eid-mubarak-sub {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
+    color: var(--gold);
+    letter-spacing: 0.3em;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+  }
+
+  .divider {
+    width: 200px; height: 2px; margin: 0 auto 1.5rem;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    position: relative;
+  }
+  .divider::before {
+    content: '✦';
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    color: var(--gold);
+    background: #060E08;
+    padding: 0 8px;
+    font-size: 1rem;
+  }
+
+  .wish-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+    color: rgba(253,246,227,0.88);
+    line-height: 1.9;
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+
+  .from-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(0.85rem, 2vw, 1.15rem);
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 15px rgba(201,168,76,0.5);
+  }
+
+  .ornament-row {
+    color: var(--gold);
+    font-size: 1.3rem;
+    letter-spacing: 0.5em;
+    margin-bottom: 2rem;
+    opacity: 0.7;
+  }
+
+  .eidi-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 1rem 2.5rem;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(0.85rem, 2.2vw, 1.05rem);
+    font-weight: 700;
+    color: var(--deep);
+    background: linear-gradient(135deg, #F0D080, #C9A84C, #F0D080);
+    border: none; border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 30px rgba(201,168,76,0.5), 0 4px 20px rgba(0,0,0,0.4);
+    transition: all 0.3s ease;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    position: relative;
+    overflow: hidden;
+  }
+  .eidi-btn::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+  }
+  .eidi-btn:hover { transform: translateY(-3px) scale(1.04); box-shadow: 0 0 50px rgba(201,168,76,0.7), 0 8px 30px rgba(0,0,0,0.5); }
+  .eidi-btn:hover::before { transform: translateX(100%); }
+
+  #page2 {
+    background: radial-gradient(ellipse at 50% 30%, #1a3d2b 0%, #060E08 70%);
+    z-index: 1;
+  }
+
+  .eidi-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    max-width: 520px;
+    animation: fadeUp 0.9s ease forwards;
+  }
+
+  .eidi-heading {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    background: linear-gradient(135deg, #F0D080, #C9A84C, #F0D080);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.4rem;
+    filter: drop-shadow(0 0 15px rgba(201,168,76,0.4));
+  }
+
+  .eidi-sub {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: rgba(253,246,227,0.75);
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .qr-wrapper {
+    background: white;
+    border-radius: 20px;
+    padding: 12px;
+    display: inline-block;
+    box-shadow: 0 0 40px rgba(201,168,76,0.4), 0 0 80px rgba(201,168,76,0.15);
+    margin-bottom: 1.2rem;
+    border: 3px solid var(--gold);
+    animation: glowPulse 3s ease-in-out infinite;
+  }
+  @keyframes glowPulse {
+    0%,100%{ box-shadow: 0 0 30px rgba(201,168,76,0.4), 0 0 60px rgba(201,168,76,0.1); }
+    50%{ box-shadow: 0 0 50px rgba(201,168,76,0.7), 0 0 100px rgba(201,168,76,0.2); }
+  }
+
+  .qr-wrapper img {
+    width: min(280px, 75vw);
+    height: auto;
+    border-radius: 12px;
+    display: block;
+  }
+
+  .upi-id {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
+  }
+  .upi-id span {
+    color: var(--gold-light);
+    font-weight: 700;
+  }
+
+  .payment-note {
+    font-size: clamp(0.8rem, 2vw, 0.95rem);
+    color: rgba(253,246,227,0.55);
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .sent-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.9rem 2.2rem;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    color: var(--deep);
+    background: linear-gradient(135deg, #2ecc71, #27ae60, #2ecc71);
+    border: none; border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 25px rgba(46,204,113,0.4);
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+  }
+  .sent-btn:hover { transform: translateY(-2px) scale(1.04); box-shadow: 0 0 40px rgba(46,204,113,0.6); }
+
+  .back-link {
+    display: block; margin-top: 1rem;
+    color: rgba(201,168,76,0.6);
+    font-size: 0.85rem;
+    cursor: pointer;
+    text-decoration: underline;
+    font-family: 'Amiri', serif;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  #page3 {
+    background: radial-gradient(ellipse at 50% 50%, #1a3d2b 0%, #060E08 70%);
+    z-index: 1;
+  }
+
+  .thanks-content {
+    position: relative; z-index: 2;
+    text-align: center;
+    padding: 2rem 1.5rem;
+    max-width: 640px;
+    animation: fadeUp 0.9s ease forwards;
+  }
+
+  .heart-burst {
+    font-size: clamp(3.5rem, 10vw, 5.5rem);
+    display: block;
+    animation: heartbeat 1.5s ease-in-out infinite;
+    filter: drop-shadow(0 0 20px rgba(192,57,43,0.7));
+    margin-bottom: 0.5rem;
+  }
+  @keyframes heartbeat {
+    0%,100%{ transform: scale(1); }
+    14%{ transform: scale(1.15); }
+    28%{ transform: scale(1); }
+    42%{ transform: scale(1.1); }
+    70%{ transform: scale(1); }
+  }
+
+  .thanks-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.8rem, 5vw, 3.5rem);
+    font-weight: 900;
+    background: linear-gradient(135deg, #F0D080, #C9A84C, #fff8dc, #C9A84C);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.3rem;
+  }
+
+  .thanks-arabic {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1.3rem, 4vw, 2rem);
+    color: var(--gold-light);
+    margin-bottom: 1.2rem;
+    opacity: 0.9;
+    direction: rtl;
+  }
+
+  .thanks-msg {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: rgba(253,246,227,0.85);
+    line-height: 2;
+    font-style: italic;
+    margin-bottom: 1.5rem;
+  }
+
+  .dua-box {
+    border: 1px solid rgba(201,168,76,0.35);
+    background: rgba(201,168,76,0.07);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.8rem;
+    backdrop-filter: blur(4px);
+  }
+  .dua-box p {
+    font-family: 'Amiri', serif;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    color: var(--cream);
+    line-height: 1.9;
+    direction: rtl;
+    margin-bottom: 0.5rem;
+  }
+  .dua-box small {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: rgba(253,246,227,0.6);
+    font-size: 0.9rem;
+  }
+
+  .fireworks-row {
+    font-size: 1.5rem;
+    letter-spacing: 0.4em;
+    margin-bottom: 1.5rem;
+    animation: sparkle 2s ease-in-out infinite;
+  }
+  @keyframes sparkle {
+    0%,100%{ opacity:1; }
+    50%{ opacity:0.5; }
+  }
+
+  .home-btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.85rem 2rem;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.85rem;
+    color: var(--deep);
+    background: linear-gradient(135deg, #F0D080, #C9A84C);
+    border: none; border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(201,168,76,0.3);
+    transition: all 0.3s ease;
+    letter-spacing: 0.05em;
+  }
+  .home-btn:hover { transform: translateY(-2px); box-shadow: 0 0 35px rgba(201,168,76,0.5); }
+
+  .particles {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    overflow: hidden;
+  }
+  .particle {
+    position: absolute;
+    border-radius: 50%;
+    animation: floatUp linear infinite;
+    opacity: 0;
+  }
+  @keyframes floatUp {
+    0%{ transform: translateY(110vh) scale(0); opacity:0; }
+    10%{ opacity:1; }
+    90%{ opacity:0.7; }
+    100%{ transform: translateY(-10vh) scale(1); opacity:0; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="stars"></canvas>
+<div class="particles" id="particlesContainer"></div>
+
+<!-- PAGE 1: WISH -->
+<div class="page active" id="page1">
+  <div class="lanterns">
+    <div class="lantern"></div><div class="lantern"></div><div class="lantern"></div>
+    <div class="lantern"></div><div class="lantern"></div><div class="lantern"></div>
+    <div class="lantern"></div>
+  </div>
+
+  <div class="wish-content">
+    <div class="arabic-top">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيم</div>
+    <span class="crescent-star">🌙✨</span>
+    <div class="eid-title">Eid ul Fitr</div>
+    <div class="eid-mubarak-sub">Mubarak</div>
+
+    <div class="divider"></div>
+
+    <p class="wish-text">
+      May the blessings of Allah fill your life with happiness<br>
+      and open all the doors of success now and always.<br>
+      May this Eid bring joy, peace, and prosperity<br>
+      to you and your loved ones.
+    </p>
+
+    <div class="ornament-row">✦ ✦ ✦ ✦ ✦</div>
+
+    <p class="from-name">— With love & prayers, Syed Mohammed Quadri —</p>
+
+    <button class="eidi-btn" onclick="goTo('page2')">
+      🎁 &nbsp;Send Eidi — Eid Gift
+    </button>
+  </div>
+</div>
+
+<!-- PAGE 2: EIDI QR -->
+<div class="page" id="page2">
+  <div class="eidi-content">
+    <div class="eidi-heading">💰 Send Eidi 💰</div>
+    <p class="eidi-sub">Spread blessings this Eid — scan & send your gift</p>
+
+    <div class="qr-wrapper">
+      <img
+        src="https://api.qrserver.com/v1/create-qr-code/?size=280x280&data=upi://pay?pa=8147393663@ptyes%26pn=Syed%20Mohammed%20Quadri%26cu=INR"
+        alt="Paytm UPI QR Code — Syed Mohammed Quadri"
+        width="280"
+        height="280"
+      />
+    </div>
+
+    <p class="upi-id">UPI ID: <span>8147393663@ptyes</span></p>
+    <p class="payment-note">
+      Scan with any UPI app — Paytm, PhonePe, GPay, BHIM &amp; more.<br>
+      Even ₹1 from you carries a thousand blessings! 🤲
+    </p>
+
+    <button class="sent-btn" onclick="goTo('page3')">
+      ✅ &nbsp;I've Sent the Eidi!
+    </button>
+    <span class="back-link" onclick="goTo('page1')">← Back to Eid wishes</span>
+  </div>
+</div>
+
+<!-- PAGE 3: THANK YOU -->
+<div class="page" id="page3">
+  <div class="thanks-content">
+    <span class="heart-burst">🤲❤️🌙</span>
+    <div class="thanks-title">JazakAllah Khair!</div>
+    <div class="thanks-arabic">جَزَاكَ اللَّهُ خَيْرًا</div>
+
+    <div class="divider"></div>
+
+    <p class="thanks-msg">
+      Your generous Eidi has been received with immense gratitude.<br>
+      May Allah bless you abundantly and return your<br>
+      kindness a thousandfold, in this world and the next.
+    </p>
+
+    <div class="dua-box">
+      <p>بَارَكَ اللَّهُ لَكَ وَبَارَكَ عَلَيْكَ وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ</p>
+      <small>"May Allah bless you and shower His blessings upon you, and unite you both in goodness."</small>
+    </div>
+
+    <div class="fireworks-row">🎆🌟✨🎇🌙🎆</div>
+
+    <p style="font-family:'Amiri',serif;color:rgba(253,246,227,0.65);font-size:0.95rem;margin-bottom:1.5rem;font-style:italic;">
+      From the heart of — <strong style="color:var(--gold-light);">Syed Mohammed Quadri</strong>
+    </p>
+
+    <button class="home-btn" onclick="goTo('page1')">
+      🏠 &nbsp;Back to Eid Wishes
+    </button>
+  </div>
+</div>
+
+<script>
+  function goTo(id) {
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    if(id === 'page3') launchConfetti();
+  }
+
+  const canvas = document.getElementById('stars');
+  const ctx = canvas.getContext('2d');
+  let stars = [];
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  function initStars() {
+    stars = [];
+    for(let i=0;i<200;i++) {
+      stars.push({
+        x: Math.random()*canvas.width,
+        y: Math.random()*canvas.height,
+        r: Math.random()*1.5+0.3,
+        a: Math.random(),
+        speed: Math.random()*0.008+0.003
+      });
+    }
+  }
+  function drawStars() {
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    stars.forEach(s => {
+      s.a += s.speed;
+      const alpha = 0.3 + 0.7*Math.abs(Math.sin(s.a));
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, Math.PI*2);
+      ctx.fillStyle = `rgba(240,208,128,${alpha})`;
+      ctx.fill();
+    });
+    requestAnimationFrame(drawStars);
+  }
+  resizeCanvas(); initStars(); drawStars();
+  window.addEventListener('resize', ()=>{ resizeCanvas(); initStars(); });
+
+  const pc = document.getElementById('particlesContainer');
+  const emojis = ['🌙','⭐','✨','🌟','💫','🕌','🌹'];
+  for(let i=0;i<18;i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.textContent = emojis[Math.floor(Math.random()*emojis.length)];
+    p.style.fontSize = (12 + Math.random()*14)+'px';
+    p.style.left = (Math.random()*100)+'%';
+    p.style.animationDuration = (8 + Math.random()*12)+'s';
+    p.style.animationDelay = (Math.random()*12)+'s';
+    pc.appendChild(p);
+  }
+
+  function launchConfetti() {
+    const colors = ['#C9A84C','#F0D080','#2ecc71','#c0392b','#fff8dc','#3498db'];
+    for(let i=0;i<60;i++) {
+      setTimeout(()=>{
+        const el = document.createElement('div');
+        el.style.cssText = `
+          position:fixed;
+          left:${Math.random()*100}%;
+          top:-10px;
+          width:${6+Math.random()*8}px;
+          height:${6+Math.random()*8}px;
+          background:${colors[Math.floor(Math.random()*colors.length)]};
+          border-radius:${Math.random()>0.5?'50%':'2px'};
+          pointer-events:none;
+          z-index:999;
+          animation:fall${Math.floor(Math.random()*3)} ${1.5+Math.random()*2}s ease-in forwards;
+        `;
+        document.body.appendChild(el);
+        setTimeout(()=>el.remove(), 4000);
+      }, i*60);
+    }
+  }
+</script>
+<style>
+  @keyframes fall0{from{transform:translateY(0) rotate(0);}to{transform:translateY(110vh) rotate(360deg);}}
+  @keyframes fall1{from{transform:translateY(0) rotate(0) skew(20deg);}to{transform:translateY(110vh) rotate(-360deg) skew(-20deg);}}
+  @keyframes fall2{from{transform:translateY(0) rotate(45deg);}to{transform:translateY(110vh) rotate(720deg);}}
+</style>
+</body>
+</html>
